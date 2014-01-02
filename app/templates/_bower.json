@@ -1,6 +1,10 @@
 {
-  "name": "package",
+  "name": "jade-rabbit",
   "version": "0.0.0",
-  "dependencies": {}
+  "dependencies": {<% if (bootstrap) { %>
+    "bootstrap": "~3.0.3",<% } %><% if (modernizr) { %>
+    "modernizr": "~2.6.2",<% } %>
+    "jquery": "~1.10.2"
+  },
+  "devDependencies": {}
 }
-

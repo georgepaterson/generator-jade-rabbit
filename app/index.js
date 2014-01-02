@@ -23,22 +23,60 @@ JadeRabbitGenerator.prototype.askFor = function askFor() {
   console.log(this.yeoman);
 
   var prompts = [{
-    type: 'confirm',
-    name: 'someOption',
-    message: 'Would you like to enable this option?',
-    default: true
+    type: 'checkbox',
+    name: 'features',
+    message: 'What more would you like?',
+    choices: [{
+      name: 'Modernizr',
+      value: 'modernizr',
+      checked: true
+      
+    }, {
+      name: 'Bootstrap with LESS',
+      value: 'bootstrap',
+      checked: true
+    }]
   }];
 
   this.prompt(prompts, function (props) {
-    this.someOption = props.someOption;
+    var features = props.features;
 
+    function hasFeature(feat) {
+      return features.indexOf(feat) !== -1; 
+    }
+
+    this.bootstrap = hasFeature('bootstrap');
+    this.modernizr = hasFeature('modernizr');
+    
     cb();
   }.bind(this));
 };
 
+JadeRabbitGenerator.prototype.mainStylesheet = function mainStylesheet() {
+  var css = 'main.' + (this.bootstrap ? 'le' : 'c') + 'ss';
+  this.copy(css, 'app/styles/' + css);
+};
+
+JadeRabbitGenerator.prototype.writeIndex = function writeIndex() {
+  this.indexFile = this.readFileAsString(path.join(this.sourceRoot(), 'index.jade'));
+  this.indexFile = this.engine(this.indexFile, this);
+};
+
+JadeRabbitGenerator.prototype.lessIndex = function lessIndex() {
+  this.lessFile = this.readFileAsString(path.join(this.sourceRoot(), 'main.less'));
+  this.lessFile = this.engine(this.lessFile, this);
+};
+
 JadeRabbitGenerator.prototype.app = function app() {
   this.mkdir('app');
-  this.mkdir('app/templates');
+  this.mkdir('app/scripts');
+  this.mkdir('app/styles');
+  this.mkdir('app/img');
+  this.mkdir('app/mixins');
+  this.mkdir('app/includes');
+  
+  this.write('app/index.jade', this.indexFile);
+  this.write('app/main.less', this.lessFile);
 
   this.copy('_package.json', 'package.json');
   this.copy('_bower.json', 'bower.json');
