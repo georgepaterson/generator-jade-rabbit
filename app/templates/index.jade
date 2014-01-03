@@ -9,11 +9,46 @@ html.no-js(lang='en')
 		script(src='bower_components/modernizr/modernizr.js')
 		<% } %>
 	body
-		.main.container(role='main')
-			.row
-				.span12
-					p Hello!
-			
+		<% if (bootstrap) { %>
+		.container
+			header.header.row
+				ul.nav.nav-pills.pull-right
+					li.active
+						a(href='#') Home
+					li
+						a(href='#') About
+					li
+						a(href='#') Contact
+				h3.text-muted Jade Rabbit
+			.jumbotron
+				h1 'Allo, 'Allo!
+				p.lead Always a pleasure scaffolding your apps.
+				p 
+					a.btn.btn-lg.btn-success(href='#') Splendid!
+			.row.marketing
+				.col-lg-6
+					h4 Jade
+					
+					h4 LESS
+					h4 HTML5 Boilerplate
+					p HTML5 Boilerplate is a professional front-end template for building fast, robust, and adaptable web apps or sites.
+					h4 Bootstrap
+					p Sleek, intuitive, and powerful mobile first front-end framework for faster and easier web development.
+					<% if (modernizr) { %>h4 Modernizr
+					p Modernizr is an open-source JavaScript library that helps you build the next generation of HTML5 and CSS3-powered websites.
+					<% } %>
+			footer.footer
+				p ♥ from the Yeoman team
+		<% } else { // bootstrap %>
+		.hero-unit
+			h1 'Allo, 'Allo!
+			p You now have
+			ul
+				li Jade
+				li LESS
+				li HTML5 Boilerplate
+				<% if (modernizr) { %>li Modernizr<% } %>
+		<% } // bootstrap %>
 		script(src='bower_components/jquery/jquery.js')<% if (bootstrap) { %>
 		script(src='bower_components/bootstrap/js/bootstrap-affix.js')
 		script(src='bower_components/bootstrap/js/bootstrap-alert.js')

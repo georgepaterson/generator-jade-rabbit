@@ -52,6 +52,32 @@ JadeRabbitGenerator.prototype.askFor = function askFor() {
   }.bind(this));
 };
 
+JadeRabbitGenerator.prototype.gruntfile = function gruntfile() {
+  this.template('Gruntfile.js');
+};
+
+JadeRabbitGenerator.prototype.packageJSON = function packageJSON() {
+  this.template('_package.json', 'package.json');
+};
+
+JadeRabbitGenerator.prototype.git = function git() {
+  this.copy('gitignore', '.gitignore');
+  this.copy('gitattributes', '.gitattributes');
+};
+
+JadeRabbitGenerator.prototype.bower = function bower() {
+  this.copy('bowerrc', '.bowerrc');
+  this.copy('_bower.json', 'bower.json');
+};
+
+JadeRabbitGenerator.prototype.jshint = function jshint() {
+  this.copy('jshintrc', '.jshintrc');
+};
+
+JadeRabbitGenerator.prototype.editorConfig = function editorConfig() {
+  this.copy('editorconfig', '.editorconfig');
+};
+
 JadeRabbitGenerator.prototype.mainStylesheet = function mainStylesheet() {
   var css = 'main.' + (this.bootstrap ? 'le' : 'c') + 'ss';
   this.copy(css, 'app/styles/' + css);
@@ -72,11 +98,10 @@ JadeRabbitGenerator.prototype.app = function app() {
   this.mkdir('app/scripts');
   this.mkdir('app/styles');
   this.mkdir('app/img');
-  this.mkdir('app/mixins');
-  this.mkdir('app/includes');
+  this.mkdir('app/modules');
   
   this.write('app/index.jade', this.indexFile);
-  this.write('app/main.less', this.lessFile);
+  this.write('app/styles/main.less', this.lessFile);
 
   this.copy('_package.json', 'package.json');
   this.copy('_bower.json', 'bower.json');
