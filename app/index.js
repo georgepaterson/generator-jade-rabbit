@@ -78,17 +78,22 @@ JadeRabbitGenerator.prototype.editorConfig = function editorConfig() {
   this.copy('editorconfig', '.editorconfig');
 };
 
-JadeRabbitGenerator.prototype.mainStylesheet = function mainStylesheet() {
-  var css = 'main.' + (this.bootstrap ? 'le' : 'c') + 'ss';
-  this.copy(css, 'app/styles/' + css);
+JadeRabbitGenerator.prototype.writeHead = function writeIndex() {
+  this.headFile = this.readFileAsString(path.join(this.sourceRoot(), 'head.jade'));
+  this.headFile = this.engine(this.headFile, this);
 };
 
-JadeRabbitGenerator.prototype.writeIndex = function writeIndex() {
-  this.indexFile = this.readFileAsString(path.join(this.sourceRoot(), 'index.jade'));
-  this.indexFile = this.engine(this.indexFile, this);
+JadeRabbitGenerator.prototype.writeBootstrap = function writeIndex() {
+  this.bootstrapFile = this.readFileAsString(path.join(this.sourceRoot(), 'bootstrap.jade'));
+  this.bootstrapFile = this.engine(this.bootstrapFile, this);
 };
 
-JadeRabbitGenerator.prototype.lessIndex = function lessIndex() {
+JadeRabbitGenerator.prototype.writeScripts = function writeIndex() {
+  this.scriptsFile = this.readFileAsString(path.join(this.sourceRoot(), 'scripts.jade'));
+  this.scriptsFile = this.engine(this.scriptsFile, this);
+};
+
+JadeRabbitGenerator.prototype.writeLess = function lessIndex() {
   this.lessFile = this.readFileAsString(path.join(this.sourceRoot(), 'main.less'));
   this.lessFile = this.engine(this.lessFile, this);
 };
@@ -100,7 +105,10 @@ JadeRabbitGenerator.prototype.app = function app() {
   this.mkdir('app/img');
   this.mkdir('app/modules');
   
-  this.write('app/index.jade', this.indexFile);
+  this.copy('index.jade', 'app/index.jade');
+  this.write('app/modules/head.jade', this.headFile);
+  this.write('app/modules/bootstrap.jade', this.bootstrapFile);
+  this.write('app/modules/scripts.jade', this.scriptsFile);
   this.write('app/styles/main.less', this.lessFile);
 
   this.copy('_package.json', 'package.json');
