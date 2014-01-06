@@ -113,7 +113,15 @@ module.exports = function (grunt) {
                     ]
                 }]
             },
-            server: '.tmp'
+            server: '.tmp',
+            index: {
+                files: [{
+                    dot: false,
+                    src: [
+                        '<%= yeoman.app %>/index.html'
+                    ]
+                }]
+            }
         },
 
         // Make sure code styles are up to par and there are no obvious mistakes
@@ -289,8 +297,7 @@ module.exports = function (grunt) {
                         '.htaccess',
                         'images/{,*/}*.webp',
                         '{,*/}*.html',
-                        'styles/fonts/{,*/}*.*'<% if (bootstrap) { %>,
-                        'bower_components/sass-bootstrap/fonts/*.*'<% } %>
+                        'styles/fonts/{,*/}*.*'
                     ]
                 }]
             },
@@ -345,6 +352,18 @@ module.exports = function (grunt) {
                     src: '*.jade',
                     ext: '.html'
                 }]
+            },
+            index: {
+                options: {
+                    pretty: true
+                },
+                files: [{
+                    expand: true,
+                    cwd: '<%= yeoman.app %>',
+                    dest: '<%= yeoman.app %>',
+                    src: 'index.jade',
+                    ext: '.html'
+                }]
             }
         }
     });
@@ -389,7 +408,7 @@ module.exports = function (grunt) {
         'jade',
         'useminPrepare',
         'concurrent:dist',
-        'autoprefixer',
+        //'autoprefixer',
         'concat',
         'cssmin',
         'uglify',
@@ -397,7 +416,8 @@ module.exports = function (grunt) {
         'modernizr',<% } %>
         //'rev',
         'usemin',
-        'htmlmin'
+        'htmlmin',
+        'clean:index'
     ]);
 
     grunt.registerTask('default', [
