@@ -110,6 +110,7 @@ JadeRabbitGenerator.prototype.app = function app() {
   this.write('app/modules/bootstrap.jade', this.bootstrapFile);
   this.write('app/modules/scripts.jade', this.scriptsFile);
   this.write('app/styles/main.less', this.lessFile);
+  this.copy('main.js', 'app/scripts/main.js');
 
   this.copy('_package.json', 'package.json');
   this.copy('_bower.json', 'bower.json');

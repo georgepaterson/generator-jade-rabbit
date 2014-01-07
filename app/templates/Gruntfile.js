@@ -118,7 +118,7 @@ module.exports = function (grunt) {
                 files: [{
                     dot: false,
                     src: [
-                        '<%= yeoman.app %>/index.html'
+                        '<%%= yeoman.app %>/index.html'
                     ]
                 }]
             }
@@ -240,14 +240,14 @@ module.exports = function (grunt) {
         htmlmin: {
             dist: {
                 options: {
-                    collapseBooleanAttributes: true,
-                    collapseWhitespace: true,
-                    removeAttributeQuotes: true,
-                    removeCommentsFromCDATA: true,
-                    removeEmptyAttributes: true,
-                    removeOptionalTags: true,
-                    removeRedundantAttributes: true,
-                    useShortDoctype: true
+                    //collapseBooleanAttributes: true,
+                    //collapseWhitespace: true,
+                    //removeAttributeQuotes: true,
+                    //removeCommentsFromCDATA: true,
+                    //removeEmptyAttributes: true,
+                    //removeOptionalTags: true,
+                    //removeRedundantAttributes: true,
+                    //useShortDoctype: true
                 },
                 files: [{
                     expand: true,
@@ -315,7 +315,7 @@ module.exports = function (grunt) {
         // reference in your app
         modernizr: {
             devFile: '<%%= yeoman.app %>/bower_components/modernizr/modernizr.js',
-            outputFile: '<%%= yeoman.dist %>/bower_components/modernizr/modernizr.js',
+            outputFile: '<%%= yeoman.dist %>/scripts/modernizr.js',
             files: [
                 '<%%= yeoman.dist %>/scripts/{,*/}*.js',
                 '<%%= yeoman.dist %>/styles/{,*/}*.css',
@@ -359,8 +359,8 @@ module.exports = function (grunt) {
                 },
                 files: [{
                     expand: true,
-                    cwd: '<%= yeoman.app %>',
-                    dest: '<%= yeoman.app %>',
+                    cwd: '<%%= yeoman.app %>',
+                    dest: '<%%= yeoman.app %>',
                     src: 'index.jade',
                     ext: '.html'
                 }]

@@ -1,3 +1,4 @@
+// build:js scripts/vendor.js 
 script(src='bower_components/jquery/jquery.js')<% if (bootstrap) { %>
 script(src='bower_components/bootstrap/js/bootstrap-affix.js')
 script(src='bower_components/bootstrap/js/bootstrap-alert.js')
@@ -11,4 +12,7 @@ script(src='bower_components/bootstrap/js/bootstrap-carousel.js')
 script(src='bower_components/bootstrap/js/bootstrap-scrollspy.js')
 script(src='bower_components/bootstrap/js/bootstrap-collapse.js')
 script(src='bower_components/bootstrap/js/bootstrap-tab.js')<% } %>
+// endbuild 						
+// build:js scripts/main.js 
 script(src='scripts/main.js')
+// endbuild 
