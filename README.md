@@ -1,4 +1,4 @@
-# generator-jade-rabbit [![Build Status](https://secure.travis-ci.org/georgepaterson/generator-jade-rabbit.png?branch=master)](https://travis-ci.org/georgepaterson/generator-jade-rabbit)
+# Jade Rabbit generator [![Build Status](https://secure.travis-ci.org/georgepaterson/generator-jade-rabbit.png?branch=master)](https://travis-ci.org/georgepaterson/generator-jade-rabbit)
 
 A generator for [Yeoman](http://yeoman.io).
 
