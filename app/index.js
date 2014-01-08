@@ -7,10 +7,23 @@ var yeoman = require('yeoman-generator');
 var JadeRabbitGenerator = module.exports = function JadeRabbitGenerator(args, options, config) {
   yeoman.generators.Base.apply(this, arguments);
 
-  this.on('end', function () {
-    this.installDependencies({ skipInstall: options['skip-install'] });
-  });
+  // Setup the test-framework property, Gruntfile template will need this
+  this.testFramework = options['test-framework'] || 'mocha';
 
+  // For hooks to resolve on mocha by default
+  options['test-framework'] = this.testFramework;
+
+  // Resolved to mocha by default (could be switched to jasmine for instance)
+  this.hookFor('test-framework', {
+    as: 'app',
+    options: {
+      options: {
+        'skip-install': options['skip-install-message'],
+        'skip-message': options['skip-install']
+      }
+    }
+  });
+  this.options = options;
   this.pkg = JSON.parse(this.readFileAsString(path.join(__dirname, '../package.json')));
 };
 
@@ -19,7 +32,7 @@ util.inherits(JadeRabbitGenerator, yeoman.generators.Base);
 JadeRabbitGenerator.prototype.askFor = function askFor() {
   var cb = this.async();
 
-  // have Yeoman greet the user.
+  // Have Yeoman greet the user.
   console.log(this.yeoman);
 
   var prompts = [{
@@ -120,3 +133,15 @@ JadeRabbitGenerator.prototype.projectfiles = function projectfiles() {
   this.copy('editorconfig', '.editorconfig');
   this.copy('jshintrc', '.jshintrc');
 };
+
+JadeRabbitGenerator.prototype.install = function () {
+  if (this.options['skip-install']) {
+    return;
+  }
+  var done = this.async();
+  this.installDependencies({
+    skipMessage: this.options['skip-install-message'],
+    skipInstall: this.options['skip-install'],
+    callback: done
+  });
+}
