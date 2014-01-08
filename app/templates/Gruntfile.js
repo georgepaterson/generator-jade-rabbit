@@ -29,7 +29,7 @@ module.exports = function (grunt) {
         watch: {
             jade: {
                 files: ['<%%= yeoman.app %>{,*/}/*.jade', '<%%= yeoman.app %>/templates/**/{,*/}*.jade'],
-                tasks: ['jade']
+                tasks: ['jade:server']
             },
             less: {
                 files: ['<%%= yeoman.app %>/styles/{,*/}*.less'],
@@ -114,7 +114,7 @@ module.exports = function (grunt) {
                 }]
             },
             server: '.tmp',
-            index: {
+            jade: {
                 files: [{
                     dot: false,
                     src: [
@@ -212,7 +212,7 @@ module.exports = function (grunt) {
             options: {
                 assetsDirs: ['<%%= yeoman.dist %>']
             },
-            html: ['<%%= yeoman.dist %>/{,*/}*.html'],
+            html: ['.tmp/{,*/}*.html'],
             css: ['<%%= yeoman.dist %>/styles/{,*/}*.css']
         },
 
@@ -251,7 +251,7 @@ module.exports = function (grunt) {
                 },
                 files: [{
                     expand: true,
-                    cwd: '<%%= yeoman.dist %>',
+                    cwd: '.tmp',
                     src: '{,*/}*.html',
                     dest: '<%%= yeoman.dist %>'
                 }]
@@ -341,7 +341,7 @@ module.exports = function (grunt) {
             ]
         },
         jade: {
-            dist: {
+            server: {
                 options: {
                     pretty: true
                 },
@@ -353,7 +353,7 @@ module.exports = function (grunt) {
                     ext: '.html'
                 }]
             },
-            index: {
+            dist: {
                 options: {
                     pretty: true
                 },
@@ -377,8 +377,7 @@ module.exports = function (grunt) {
         grunt.task.run([
             'clean:server',
             'concurrent:server',
-            'jade',
-            //'autoprefixer',
+            'jade:server',
             'connect:livereload',
             'watch'
         ]);
@@ -407,17 +406,17 @@ module.exports = function (grunt) {
         'clean:dist',
         'jade',
         'useminPrepare',
+        'clean:jade',
         'concurrent:dist',
-        //'autoprefixer',
+        'autoprefixer',
         'concat',
         'cssmin',
         'uglify',
         'copy:dist',<% if (modernizr) { %>
         'modernizr',<% } %>
-        //'rev',
+        'rev',
         'usemin',
-        'htmlmin',
-        'clean:index'
+        'htmlmin'
     ]);
 
     grunt.registerTask('default', [
