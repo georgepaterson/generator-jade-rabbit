@@ -1,46 +1,35 @@
 # Jade Rabbit generator [![Build Status](https://secure.travis-ci.org/georgepaterson/generator-jade-rabbit.png?branch=master)](https://travis-ci.org/georgepaterson/generator-jade-rabbit)
 
-A generator for [Yeoman](http://yeoman.io).
+A generator for [Yeoman](http://yeoman.io) that scaffolds out a front-end Web app with Jade templates.
 
+## Features
+
+* CSS Autoprefixing *(new)*
+* Built-in preview server with LiveReload
+* Automagically compile Jade & LESS
+* Automagically lint your scripts
+* Awesome Image Optimization (via OptiPNG, pngquant, jpegtran and gifsicle)
+* Mocha Unit Testing with PhantomJS
+* Optional - Twitter Bootstrap for LESS
+* Optional - Leaner Modernizr builds *(new)*
+
+For more information on what `generator-webapp` can do for you, take a look at the [Grunt tasks](https://github.com/yeoman/generator-webapp/blob/master/app/templates/_package.json) used in our `package.json`.
 
 ## Getting Started
 
-### What is Yeoman?
+- Install: `npm install -g generator-jade-rabbit`
+- Run: `yo jade-rabbit`
+- Run: `grunt` for building and `grunt serve` for preview [*](#serve-note)
 
-Trick question. It's not a thing. It's this guy:
+### Grunt Serve Note
 
-![](http://i.imgur.com/JHaAlBJ.png)
+Note: `grunt server` was previously used for previewing in earlier versions of the project and is being deprecated in favor of `grunt serve`.
 
-Basically, he wears a top hat, lives in your computer, and waits for you to tell him what kind of application you wish to create.
+## Options
 
-Not every new computer comes with a Yeoman pre-installed. He lives in the [npm](https://npmjs.org) package repository. You only have to ask for him once, then he packs up and moves into your hard drive. *Make sure you clean up, he likes new and shiny things.*
+* `--skip-install`
 
-```
-$ npm install -g yo
-```
-
-### Yeoman Generators
-
-Yeoman travels light. He didn't pack any generators when he moved in. You can think of a generator like a plug-in. You get to choose what type of application you wish to create, such as a Backbone application or even a Chrome extension.
-
-To install generator-jade-rabbit from npm, run:
-
-```
-$ npm install -g generator-jade-rabbit
-```
-
-Finally, initiate the generator:
-
-```
-$ yo jade-rabbit
-```
-
-### Getting To Know Yeoman
-
-Yeoman has a heart of gold. He's a person with feelings and opinions, but he's very easy to work with. If you think he's too opinionated, he can be easily convinced.
-
-If you'd like to get to know Yeoman better and meet some of his friends, [Grunt](http://gruntjs.com) and [Bower](http://bower.io), check out the complete [Getting Started Guide](https://github.com/yeoman/yeoman/wiki/Getting-Started).
-
+  Skips the automatic execution of `bower` and `npm` after scaffolding has finished.
 
 ## License
 
