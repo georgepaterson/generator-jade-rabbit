@@ -2,6 +2,7 @@
 var util = require('util');
 var path = require('path');
 var yeoman = require('yeoman-generator');
+var chalk = require('chalk');
 
 
 var JadeRabbitGenerator = module.exports = function JadeRabbitGenerator(args, options, config) {
@@ -34,6 +35,7 @@ JadeRabbitGenerator.prototype.askFor = function askFor() {
 
   // Have Yeoman greet the user.
   console.log(this.yeoman);
+  console.log(chalk.red('Out of the box I include Jade, HTML5 Boilerplate, jQuery, and a Gruntfile.js to build your app.'));
 
   var prompts = [{
     type: 'checkbox',

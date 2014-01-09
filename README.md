@@ -13,13 +13,13 @@ A generator for [Yeoman](http://yeoman.io) that scaffolds out a front-end Web ap
 * Optional - Twitter Bootstrap for LESS
 * Optional - Leaner Modernizr builds *(new)*
 
-For more information on what `generator-webapp` can do for you, take a look at the [Grunt tasks](https://github.com/georgepaterson/generator-jade-rabbit/blob/master/app/templates/_package.json) used in our `package.json`.
+For more information on what `generator-jade-rabbit` can do for you, take a look at the [Grunt tasks](https://github.com/georgepaterson/generator-jade-rabbit/blob/master/app/templates/_package.json) used in our `package.json`.
 
 ## Getting Started
 
 - Install: `npm install -g generator-jade-rabbit`
 - Run: `yo jade-rabbit`
-- Run: `grunt` for building and `grunt serve` for preview [*](#serve-note)
+- Run: `grunt` for building and `grunt serve` for preview [*](#grunt-serve-note)
 
 ### Grunt Serve Note
 
