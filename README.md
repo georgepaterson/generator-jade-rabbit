@@ -13,7 +13,7 @@ A generator for [Yeoman](http://yeoman.io) that scaffolds out a front-end Web ap
 * Optional - Twitter Bootstrap for LESS
 * Optional - Leaner Modernizr builds *(new)*
 
-For more information on what `generator-webapp` can do for you, take a look at the [Grunt tasks](https://github.com/yeoman/generator-webapp/blob/master/app/templates/_package.json) used in our `package.json`.
+For more information on what `generator-webapp` can do for you, take a look at the [Grunt tasks](https://github.com/georgepaterson/generator-jade-rabbit/blob/master/app/templates/_package.json) used in our `package.json`.
 
 ## Getting Started
 
