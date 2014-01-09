@@ -278,23 +278,37 @@ module.exports = function (grunt) {
                 files: [{
                     expand: true,
                     dot: true,
-                    cwd: '<%%= yeoman.app %>',
-                    dest: '<%%= yeoman.dist %>',
+                    cwd: '<%= yeoman.app %>',
+                    dest: '<%= yeoman.dist %>',
                     src: [
                         '*.{ico,png,txt}',
                         '.htaccess',
                         'images/{,*/}*.webp',
                         '{,*/}*.html',
                         'styles/fonts/{,*/}*.*'
-                    ]
+                    ]<% if (modernizr) { %>
+                },  {
+                    expand: true,
+                    dot: true,
+                    cwd: '<%= yeoman.app %>/bower_components/bootstrap/dist/fonts/',
+                    dest: '<%= yeoman.dist %>/fonts/',
+                    src: '*.*'<% } %>
                 }]
             },
             styles: {
-                expand: true,
-                dot: true,
-                cwd: '<%%= yeoman.app %>/styles',
-                dest: '.tmp/styles/',
-                src: '{,*/}*.css'
+                files: [{
+                    expand: true,
+                    dot: true,
+                    cwd: '<%= yeoman.app %>/styles',
+                    dest: '.tmp/styles/',
+                    src: '{,*/}*.css'<% if (modernizr) { %>
+                },  {
+                    expand: true,
+                    dot: true,
+                    cwd: '<%= yeoman.app %>/bower_components/bootstrap/dist/fonts/',
+                    dest: '.tmp/fonts/',
+                    src: '*.*'<% } %>
+                }]
             }
         },
 
