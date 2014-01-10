@@ -17,9 +17,10 @@ For more information on what `generator-jade-rabbit` can do for you, take a look
 
 ## Getting Started
 
-- Install: `npm install -g generator-jade-rabbit`
-- Run: `yo jade-rabbit`
-- Run: `grunt` for building and `grunt serve` for preview [*](#grunt-serve-note)
+* Make sure you have yo installed: npm install -g yo
+* Install: `npm install -g generator-jade-rabbit`
+* Run: `yo jade-rabbit`
+* Run: `grunt` for building and `grunt serve` for preview [*](#grunt-serve-note)
 
 ### Grunt Serve Note
 
