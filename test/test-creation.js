@@ -13,10 +13,18 @@ describe('jade-rabbit generator', function () {
             }
 
             this.app = helpers.createGenerator('jade-rabbit:app', [
-                '../../app'
+                '../../app', [
+                helpers.createDummyGenerator(),
+                'mocha:app'
+              ]
             ]);
             done();
         }.bind(this));
+    });
+    
+    it('the generator can be required without throwing', function () {
+      // not testing the actual run of generators yet
+      this.app = require('../app');
     });
 
     it('creates expected files', function (done) {
@@ -27,7 +35,7 @@ describe('jade-rabbit generator', function () {
         ];
 
         helpers.mockPrompt(this.app, {
-            'someOption': true
+            features: ['modernizr']
         });
         this.app.options['skip-install'] = true;
         this.app.run({}, function () {
