@@ -2,7 +2,3 @@ language: node_js
 node_js:
   - '0.8'
   - '0.10'
-before_install:
-  - currentfolder=${PWD##*/}
-  - if [ "$currentfolder" != 'generator-jade-rabbit' ]; then cd .. && eval "mv $currentfolder generator-jade-rabbit" && cd generator-jade-rabbit; fi
-
