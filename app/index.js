@@ -136,6 +136,12 @@ JadeRabbitGenerator.prototype.projectfiles = function projectfiles() {
   this.copy('jshintrc', '.jshintrc');
 };
 
+JadeRabbitGenerator.prototype.h5bp = function h5bp() {
+  this.copy('favicon.ico', 'app/favicon.ico');
+  this.copy('robots.txt', 'app/robots.txt');
+  this.copy('htaccess', 'app/.htaccess');
+};
+
 JadeRabbitGenerator.prototype.install = function () {
   if (this.options['skip-install']) {
     return;
