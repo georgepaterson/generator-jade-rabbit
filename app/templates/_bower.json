@@ -1,5 +1,5 @@
 {
-  "name": "jade-rabbit",
+  "name": "<%= _.slugify(appname) %>",
   "version": "0.0.0",
   "dependencies": {<% if (bootstrap) { %>
     "bootstrap": "~3.0.3",<% } %><% if (modernizr) { %>
