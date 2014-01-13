@@ -26,16 +26,80 @@ describe('jade-rabbit generator', function () {
       // not testing the actual run of generators yet
       this.app = require('../app');
     });
+    
+    it('creates expected files with Modernizr and Bootstrap', function (done) {
+        var expected = [
+            'Gruntfile.js',
+            'package.json',
+            '.gitignore',
+            '.gitattributes',
+            '.bowerrc',
+            'bower.json',
+            '.jshintrc',
+            '.editorconfig',
+            'app/index.jade',
+            'app/modules/head.jade',
+            'app/modules/bootstrap.jade',
+            'app/modules/scripts.jade',
+            'app/styles/main.less',
+            'app/scripts/main.js'
+        ];
+        helpers.mockPrompt(this.app, {
+            features: ['modernizr', 'bootstrap']
+        });
+        this.app.options['skip-install'] = true;
+        this.app.run({}, function () {
+            helpers.assertFiles(expected);
+            done();
+        });
+    });
+    
+    it('creates expected files with Modernizr', function (done) {
+        var expected = [
+            'Gruntfile.js',
+            'package.json',
+            '.gitignore',
+            '.gitattributes',
+            '.bowerrc',
+            'bower.json',
+            '.jshintrc',
+            '.editorconfig',
+            'app/index.jade',
+            'app/modules/head.jade',
+            'app/modules/bootstrap.jade',
+            'app/modules/scripts.jade',
+            'app/styles/main.less',
+            'app/scripts/main.js'
+        ];
+        helpers.mockPrompt(this.app, {
+            features: ['modernizr']
+        });
+        this.app.options['skip-install'] = true;
+        this.app.run({}, function () {
+            helpers.assertFiles(expected);
+            done();
+        });
+    });
 
     it('creates expected files', function (done) {
         var expected = [
-            // add files you expect to exist here.
+            'Gruntfile.js',
+            'package.json',
+            '.gitignore',
+            '.gitattributes',
+            '.bowerrc',
+            'bower.json',
             '.jshintrc',
-            '.editorconfig'
+            '.editorconfig',
+            'app/index.jade',
+            'app/modules/head.jade',
+            'app/modules/bootstrap.jade',
+            'app/modules/scripts.jade',
+            'app/styles/main.less',
+            'app/scripts/main.js'
         ];
-
         helpers.mockPrompt(this.app, {
-            features: ['modernizr']
+            features: ['']
         });
         this.app.options['skip-install'] = true;
         this.app.run({}, function () {
