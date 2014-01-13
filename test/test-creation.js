@@ -42,7 +42,10 @@ describe('jade-rabbit generator', function () {
             'app/modules/bootstrap.jade',
             'app/modules/scripts.jade',
             'app/styles/main.less',
-            'app/scripts/main.js'
+            'app/scripts/main.js',
+            'app/favicon.ico',
+            'app/robots.txt',
+            'app/.htaccess'
         ];
         helpers.mockPrompt(this.app, {
             features: ['modernizr', 'bootstrap']
@@ -69,7 +72,10 @@ describe('jade-rabbit generator', function () {
             'app/modules/bootstrap.jade',
             'app/modules/scripts.jade',
             'app/styles/main.less',
-            'app/scripts/main.js'
+            'app/scripts/main.js',
+            'app/favicon.ico',
+            'app/robots.txt',
+            'app/.htaccess'
         ];
         helpers.mockPrompt(this.app, {
             features: ['modernizr']
@@ -96,7 +102,10 @@ describe('jade-rabbit generator', function () {
             'app/modules/bootstrap.jade',
             'app/modules/scripts.jade',
             'app/styles/main.less',
-            'app/scripts/main.js'
+            'app/scripts/main.js',
+            'app/favicon.ico',
+            'app/robots.txt',
+            'app/.htaccess'
         ];
         helpers.mockPrompt(this.app, {
             features: ['']
