@@ -20,6 +20,7 @@
     "grunt-usemin": "~2.0.0",
     "grunt-mocha": "~0.4.0",
     "grunt-modernizr": "~0.4.0",
+    "grunt-newer": "~0.6.0",
     "grunt-svgmin": "~0.2.0",
     "grunt-concurrent": "~0.4.0",
     "load-grunt-tasks": "~0.2.0",
