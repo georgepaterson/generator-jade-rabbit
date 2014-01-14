@@ -390,7 +390,7 @@ module.exports = function (grunt) {
         grunt.task.run(['serve']);
     });
 
-    grunt.registerTask('test', function(target) {
+    grunt.registerTask('test', function (target) {
         if (target !== 'watch') {
             grunt.task.run([
                 'clean:server',
