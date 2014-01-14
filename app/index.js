@@ -121,6 +121,7 @@ JadeRabbitGenerator.prototype.app = function app() {
   this.mkdir('app/modules');
   
   this.copy('index.jade', 'app/index.jade');
+  this.copy('404.jade', 'app/404.jade');
   this.write('app/modules/head.jade', this.headFile);
   this.write('app/modules/bootstrap.jade', this.bootstrapFile);
   this.write('app/modules/scripts.jade', this.scriptsFile);
