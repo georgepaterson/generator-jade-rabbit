@@ -1,6 +1,6 @@
 {
   "name": "generator-jade-rabbit",
-  "version": "0.3.3",
+  "version": "0.3.4",
   "description": "A front-end generator with Jade and LESS",
   "keywords": [
     "yeoman-generator",

@@ -1,3 +1,8 @@
+### v0.3.4
+
+* Removing bootstrap prefix from JS files
+* Package version number
+
 ### v0.3.3
 
 * Package version number
