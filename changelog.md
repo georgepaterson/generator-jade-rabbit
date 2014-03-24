@@ -1,3 +1,11 @@
+### v0.3.3
+
+* Package version number
+
+### v0.3.2
+
+* Generic location for Jade file change test
+
 ### v0.3.1
 
 * Node.js version support for test
