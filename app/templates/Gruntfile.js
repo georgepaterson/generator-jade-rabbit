@@ -28,7 +28,7 @@ module.exports = function (grunt) {
         // Watches files for changes and runs tasks based on the changed files
         watch: {
             jade: {
-                files: ['<%%= yeoman.app %>{,*/}/*.jade', '<%%= yeoman.app %>/templates/**/{,*/}*.jade'],
+                files: ['<%%= yeoman.app %>{,*/}/*.jade', '<%%= yeoman.app %>/**/{,*/}*.jade'],
                 tasks: ['jade:server']
             },
             less: {
