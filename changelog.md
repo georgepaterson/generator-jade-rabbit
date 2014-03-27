@@ -1,3 +1,7 @@
+### v0.3.5
+
+* Changed images folder referenced in Grunt file to img folder actually used
+
 ### v0.3.4
 
 * Removing bootstrap prefix from JS files
